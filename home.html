@@ -1,54 +1,47 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>Início</title>
-    <link rel="stylesheet" href="styles/main.css">
-</head>
+    <meta charsert="UTF-8">
+    <title>título da página</title>
+    <link rel="stylesheet">
+    <href=styler.css>
+        </href>
+
 <body>
     <header>
-        <h1>Página Inicial</h1>
-        <nav>
-            <ul>
-                <li><a href="home.html">Início</a></li>
-                <li><a href="tarefas.html">Tarefas</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="login.html"><button>Login</button></a></li>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        <div class="card" style="width: 18rem;">
+            <ul class="list-group list-group-flush">
+                <a href="#" class="btn btn-primary">Inserir nome do usuário</a>
+                <a href="#" class="btn btn-primary">Inserir telefone do usuário</a>
+                <p class="d-inline-flex gap-1">
+                    <button type="button" class="btn" data-bs-toggle="button">Aceitar nome do usuário</button>
+                    <button type="button" class="btn active" data-bs-toggle="button" aria-pressed="true">Active toggle
+                        button</button>
+                    <button type="button" class="btn" disabled data-bs-toggle="button">Disabled toggle button</button>
+                </p>
+                <p class="d-inline-flex gap-1">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="button">Aceitar telefone do
+                        usuário</button>
+                    <button type="button" class="btn btn-primary active" data-bs-toggle="button"
+                        aria-pressed="true">Active toggle button</button>
+                    <button type="button" class="btn btn-primary" disabled data-bs-toggle="button">Disabled toggle
+                        button</button>
+                </p>
             </ul>
+        </div>
+        <!-- As a link -->
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+            </div>
         </nav>
-    </header>
-    <main>
-        <section>
-            <h2>Bem-vindo!</h2>
-            <p>Esta é a página inicial da Nova Aplicação Web.</p>
-            <div class="card">
-                <h3>Resumo do Usuário</h3>
-                <ul>
-                    <li><strong>Nome:</strong> Maria Oliveira</li>
-                    <li><strong>Telefone:</strong> (11) 91234-5678</li>
-                </ul>
+
+        <!-- As a heading -->
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1">Lista de Usuários</span>
             </div>
-            <div class="card">
-                <h3>Últimas Tarefas</h3>
-                <ul>
-                    <li>Estudar programação - Não concluída</li>
-                    <li>Fazer exercícios - Concluída</li>
-                </ul>
-            </div>
-        </section>
-        <section>
-            <h2>Informe seus dados</h2>
-            <form action="usuario.html" method="get">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required><br>
-                <label for="telefone">Telefone:</label>
-                <input type="text" id="telefone" name="telefone" required><br>
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Nova Aplicação Web</p>
-    </footer>
-</body>
-</html>
+        </nav>
