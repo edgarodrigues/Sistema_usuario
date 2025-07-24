@@ -3,39 +3,96 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Informações sobre o Usuário</title>
+    <title>Sistema de Usuários</title>
     <link rel="stylesheet" href="styler.css">
 </head>
 
 <body>
     <header>
-        <h1>Lista de Usuários</h1>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-        <h3>Inserir a lista de usuários</h3>
-    </header>Clicar no botão enviar para enviar a lista de usuários.
-        <label>Nome</label>
-        <label>Telefone</label>
-        <div class="card">
-            <div class="card-body">
-               Primeiro Usuário 
-            </div>
+        <h1>Contatos</h1>
+        <p>Insira o contato:</p>
+        <div style="width: 90%; height: 40px ">
+            <label>Insira o nome do contato:</label>
+            <input type="nome" id="nome" placeholder="Nome do usuário" class="nome_usuario">
         </div>
-        <label>Nome</label>
-        <label>Telefone</label>
-        <div class="card">
-            <div class="card-body">
-               Segundo Usuário 
+    </header>
+    <div style="width: 90%; height: 40px ">
+        <label>Insira o telefone do contato:</label>
+        <input type="text" id="telefone" placeholder="Telefone do usuário" class="telefone_usuario">
+    </div>
+    <main>
+        <div class="container">
+            <div class="row">
+                <button type="button" onclick="salvarContato()" class="btn">Enviar</button>
+                <ul id="contatos-salvos"></ul>
             </div>
-        </div>
-        <label>Nome</label>
-        <label>Telefone</label>
-        <div class="card">
-            <div class="card-body">
-               Terceiro Usuário 
-            </div>
-        </div>
-        
+    </main>
+    </div>
+    </div>
+    <script>
+        function salvarContato() { }
+        const nome = document.getElementById('nome').value;
+        const telefone = document.getElementById('telefone').value;
+        const contatosSalvos = document.getElementById('contatos-salvos');
 
-    
-   
+        // Verifica se os campos estão preenchidos
+        if (nome && telefone) {
+            const li = document.createElement('li');
+            li.textContent = `Nome: ${nome}, Telefone: ${telefone}`;
+            contatosSalvos.appendChild(li);
+            document.getElementById('nome').value = '';
+            document.getElementById('telefone').value = '';
+        } else {
+            alert('Por favor, preencha todos os campos.');
+        }
+
+        if (typeof salvarContato === 'function') {
+            console.log('Função salvarContato está definida.');
+
+        } else {
+            console.error('Função salvarContato não está definida.');
+        }
+
+        // Adiciona o evento de clique ao botão
+        document.querySelector('.btn').addEventListener('click', salvarContato);
+        document.addEventListener('DOMContentLoaded', function () {
+            const contatosSalvos = document.getElementById('contatos-salvos');
+            contatosSalvos.innerHTML = '';
+        });
+
+        listaContatos = [];
+        function salvarContato() {
+            document.getElementById('nome').value;
+            document.getElementById('telefone').value;
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+
+            listaContatosparaCadaItem = {
+                const itemLista = document.getElementById('contatos-salvos')
+            const nomeCampo = document.getElementById('nome')
+            const telefoneCampo = document.getElementById('telefone')
+            itemLista.innerHTML = ''
+            nomeCampo.value = ''
+            telefoneCampo.value = ''
+            };
+
+            function excluirUsuario() { }
+            const nomeValue = document.getElementById('nome').value;
+            const telefoneValue = document.getElementById('telefone').value;
+            const telefoneCampo = document.getElementById('telefone');
+            const nomeCampo = document.getElementById('nome');
+
+            if (nomeValue && telefoneValue) {
+                const itemLista = document.createElement('li');
+                itemLista.textContent = `Nome: ${nomeValue}, Telefone: ${telefoneValue}`;
+                const excluirBtn = document.createElement('button');
+                excluirBtn.textContent = 'Excluir';
+                excluirBtn.onclick = function () {
+                    itemLista.remove();
+                    <button type="button" onclick="excluirUsuario()" class="btn">Excluir</button>
+    </script>
+</body>
+
+</html>
