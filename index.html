@@ -26,72 +26,50 @@
         <div class="container">
             <div class="row">
                 <button type="button" onclick="salvarContato()" class="btn">Enviar</button>
-                <ul id="contatos-salvos"></ul>
+                <button type="button" onclick="excluirUsuario()" class="btn">Excluir</button>
             </div>
+            <ul id="contatos-salvos"></ul>
     </main>
     </div>
     </div>
     <script>
-        function salvarContato() { }
-        const nome = document.getElementById('nome').value;
-        const telefone = document.getElementById('telefone').value;
-        const contatosSalvos = document.getElementById('contatos-salvos');
-
-        // Verifica se os campos estão preenchidos
-        if (nome && telefone) {
-            const li = document.createElement('li');
-            li.textContent = `Nome: ${nome}, Telefone: ${telefone}`;
-            contatosSalvos.appendChild(li);
-            document.getElementById('nome').value = '';
-            document.getElementById('telefone').value = '';
-        } else {
-            alert('Por favor, preencha todos os campos.');
-        }
-
-        if (typeof salvarContato === 'function') {
-            console.log('Função salvarContato está definida.');
-
-        } else {
-            console.error('Função salvarContato não está definida.');
-        }
-
-        // Adiciona o evento de clique ao botão
-        document.querySelector('.btn').addEventListener('click', salvarContato);
-        document.addEventListener('DOMContentLoaded', function () {
-            const contatosSalvos = document.getElementById('contatos-salvos');
-            contatosSalvos.innerHTML = '';
-        });
-
-        listaContatos = [];
         function salvarContato() {
-            document.getElementById('nome').value;
-            document.getElementById('telefone').value;
+            const listaUsuarios = []
             const nome = document.getElementById('nome').value;
             const telefone = document.getElementById('telefone').value;
+            const contatosSalvos = document.getElementById('contatos-salvos');
+            if (nome && telefone) {
+                console.log(`Nome: ${nome}, Telefone: ${telefone}`);
+                listaUsuarios.push({ nome, telefone });
+                document.getElementById('nome').value = '';
+                document.getElementById('telefone').value = '';
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
 
-            listaContatosparaCadaItem = {
-                const itemLista = document.getElementById('contatos-salvos')
-            const nomeCampo = document.getElementById('nome')
-            const telefoneCampo = document.getElementById('telefone')
-            itemLista.innerHTML = ''
-            nomeCampo.value = ''
-            telefoneCampo.value = ''
-            };
+            listaUsuarios.forEach((usuario) => {
+                const li = document.createElement('li');
+                li.textContent = `Nome: ${nome}, Telefone: ${telefone}`;
+                contatosSalvos.appendChild(li);
+            })
+        }
 
-            function excluirUsuario() { }
-            const nomeValue = document.getElementById('nome').value;
-            const telefoneValue = document.getElementById('telefone').value;
-            const telefoneCampo = document.getElementById('telefone');
-            const nomeCampo = document.getElementById('nome');
+        function excluirUsuario() {
+            const contatosSalvos = document.getElementById('contatos-salvos');
+            const excluirUsuario = document.getElementById('nome').value;
+            console.log(`Usuário a ser excluído: ${excluirUsuario}`);
+            console.log('Excluir apenas um usuário');
+            contatosSalvos.innerHTML = '';
+            console.log('Um dos usuários selecionados para excluir da lista de usuários')
+            const contatosExcluidos = document.getElementById('contatos-excluidos');
+            const li = document.createElement('li');
+            li.textContent = 'Todos os contatos foram excluídos.';
+            li.className = 'excluidos';
+            contatosExcluidos.appendChild(li);
+        
 
-            if (nomeValue && telefoneValue) {
-                const itemLista = document.createElement('li');
-                itemLista.textContent = `Nome: ${nomeValue}, Telefone: ${telefoneValue}`;
-                const excluirBtn = document.createElement('button');
-                excluirBtn.textContent = 'Excluir';
-                excluirBtn.onclick = function () {
-                    itemLista.remove();
-                    <button type="button" onclick="excluirUsuario()" class="btn">Excluir</button>
+        }
+
     </script>
 </body>
 
