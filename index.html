@@ -26,6 +26,7 @@
         <div class="container">
             <div class="row">
                 <button type="button" onclick="salvarContato()" class="btn">Enviar</button>
+                <button type="button" onclick="editarUsuario()" class="btn">Editar</button>
                 <button type="button" onclick="excluirUsuario()" class="btn">Excluir</button>
             </div>
             <ul id="contatos-salvos"></ul>
@@ -66,8 +67,21 @@
             li.textContent = 'Todos os contatos foram excluídos.';
             li.className = 'excluidos';
             contatosExcluidos.appendChild(li);
-        
+        }
 
+        function editarUsuario() {
+            const contatosSalvos = document.getElementById('contatos-salvos');
+            const editarUsuario = document.getElementById('nome').value;
+            console.log(`Usuário a ser editado: ${editarUsuario}`);
+            console.log('Editar apenas um usuário');
+            contatosSalvos.innerHTML = '';
+            console.log('Um dos usuários selecionados na lista para serem editados')
+            const contatosEditados = document.getElementById('contatos-editados');
+            const li = document.createElement('li');
+            li.textContent = 'Todos os contatos foram editados.';
+            li.className = 'excluidos';
+            contatosEditados.appendChild(li); 
+            <button type="button" onclick="excluirUsuario()" class="btn">Excluir</button>
         }
 
     </script>
