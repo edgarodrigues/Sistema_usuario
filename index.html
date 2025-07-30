@@ -38,18 +38,30 @@
         listaUsuarios.forEach((usuario) => {
             const li = document.createElement('li');
             li.textContent = `Nome: ${usuario.nome}, Telefone: ${usuario.telefone}`;
-            Nome: Maria Oliveira, Telefone: 31955467689
-            Nome: João Silva, Telefone: 31955534112
-            Nome: Fernando Reis, Telefone: 319678893450
+            const itemLista = document.createElement('li')
+            itemLista.className = 'lista-item'
+            const botaoDeletar = document.createElement('button')
+            botaoDeletar.textContent = 'Excluir';
+            botaoDeletar.className = 'btn btn-danger';
             document.getElementById('contatos-salvos').appendChild(li);
         });
 
         criarListaUsuarios = (usuario) => {
             const itemLista = document.createElement('li');
             itemLista.textContent = `Nome: ${usuario.nome}, Telefone: ${usuario.telefone}`;
-            Nome: Maria Oliveira, Telefone: 31955467689
-            Nome: João Silva, Telefone: 31955534112
-            Nome: Fernando Reis, Telefone: 319678893450
+            itemLista.className = 'lista-item';
+            const botaoDeletar = document.createElement('button');
+            botaoDeletar.textContent = 'Excluir';
+            contatos.appendChild(itemLista)
+            itemLista.appendChild(botaoDeletar);
+            botaoDeletar.addEventListener('click', () => {
+                const index = listaUsuarios.indexOf(usuario);
+                if (index > -1) {
+                    listaUsuarios.splice(index, 1);
+                    itemLista.remove();
+                }
+            });
+            botaoDeletar.className = 'btn btn-danger';
             document.getElementById('contatos-salvos').appendChild(itemLista);
         }
 
@@ -57,6 +69,7 @@
         botaodeletar.addEventListener('click', excluirUsuario);
         botaoadicionar = document.getElementById('adicionar');
         botaoadicionar.addEventListener('click', salvarContato);
+        
 
         itemLista.textcontext = "Index: " + index + " Nome: " + item.nome + " - Telefone" + item.telefone
 
@@ -68,9 +81,12 @@
         nomeCampo.value = '';
         telefoneCampo = document.getElementById('telefone');
         telefoneCampo.value = '';
-        const contatosEditados = document.getElementById('contatos-editados');
+        const contatosEditados = document.getElementById('contatos-editados')
+
 
         function excluirUsuario() {
+            console.log('Excluir apenas um usuário');
+            const listaUsuarios = [];
             const contatosSalvos = document.getElementById('contatos-salvos');
             const excluirUsuario = document.getElementById('nome').value;
             console.log(`Usuário a ser excluído: ${excluirUsuario}`);
@@ -82,6 +98,11 @@
             li.className = 'excluidos';
             contatosExcluidos.appendChild(li);
         }
+
+      <div class="lista">
+        <p class="lista-titulo">Contatos salvos:</p>
+        <ul id="contatos-salvos"></ul>
+      </div>
 
 
         function salvarContato() {
