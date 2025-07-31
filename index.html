@@ -25,7 +25,7 @@
     <main>
         <div class="container">
             <div class="row button-container">
-                <button type="button" onclick="salvarContato()" class="btn">Enviar</button>
+                <button type="button" onclick="salvarDados()" class="btn">Enviar</button>
                 <button type="button" onclick="editarUsuario()" class="btn">Editar</button>
                 <button type="button" onclick="excluirUsuario()" class="btn">Excluir</button>
             </div>
@@ -35,114 +35,72 @@
     </div>
     <script>
 
-        listaUsuarios.forEach((usuario) => {
-            const li = document.createElement('li');
-            li.textContent = `Nome: ${usuario.nome}, Telefone: ${usuario.telefone}`;
-            const itemLista = document.createElement('li')
-            itemLista.className = 'lista-item'
-            const botaoDeletar = document.createElement('button')
-            botaoDeletar.textContent = 'Excluir';
-            botaoDeletar.className = 'btn btn-danger';
-            document.getElementById('contatos-salvos').appendChild(li);
-        });
+        function pegarContatosSalvos() {
+            const listaContatos = []
+            const contatos = document.getElementById('contatos-salvos') // Obtém a lista de contatos salvos
+            contatos.childNodes.forEach((item) => { // Itera sobre cada item da lista
+                const informacao = item.textContent.split('\n')
+                const nome = informacao[1].replace('Nome: ', '').trim()
+                const telefone = informacao[2].replace('Telefone: ', '').trim().replace('Deletar contato', '').trim()
 
-        criarListaUsuarios = (usuario) => {
-            const itemLista = document.createElement('li');
-            itemLista.textContent = `Nome: ${usuario.nome}, Telefone: ${usuario.telefone}`;
-            itemLista.className = 'lista-item';
-            const botaoDeletar = document.createElement('button');
-            botaoDeletar.textContent = 'Excluir';
-            contatos.appendChild(itemLista)
-            itemLista.appendChild(botaoDeletar);
-            botaoDeletar.addEventListener('click', () => {
-                const index = listaUsuarios.indexOf(usuario);
-                if (index > -1) {
-                    listaUsuarios.splice(index, 1);
-                    itemLista.remove();
-                }
-            });
-            botaoDeletar.className = 'btn btn-danger';
-            document.getElementById('contatos-salvos').appendChild(itemLista);
+            })
+
+            return listaContatos
+
         }
 
-        botaodeletar = document.getElementById('excluir');
-        botaodeletar.addEventListener('click', excluirUsuario);
-        botaoadicionar = document.getElementById('adicionar');
-        botaoadicionar.addEventListener('click', salvarContato);
-        
+        function salvarDados() {
+            const listContatos = pegarContatosSalvos()
+            const nomeCampo = document.getElementById('nome')
+            const telefoneCampo = document.getElementById('telefone')
+            const nomeValue = nomeCampo.value
+            const telefoneValue = telefoneCampo.value
 
-        itemLista.textcontext = "Index: " + index + " Nome: " + item.nome + " - Telefone" + item.telefone
+            if (nomeValue.length < 3 && telefoneValue.length < 3) return
+            const contatos = document.getElementById('contatos-salvos')
 
-        itemLista = document.createElement('li');
-        itemLista.textContent = `Nome: ${usuario.nome}, Telefone: ${usuario.telefone}`;
-        document.getElementById('contatos-salvos').appendChild(itemLista);
-        const contatosExcluidos = document.getElementById('contatos-excluidos');
+            listContatos.push({
+                nome: nomeValue,
+                telefone: telefoneValue,
+            })
 
-        nomeCampo.value = '';
-        telefoneCampo = document.getElementById('telefone');
-        telefoneCampo.value = '';
-        const contatosEditados = document.getElementById('contatos-editados')
+            listContatos.forEach((item, index) => {
+                // Cria um item de lista para cada contato
+                const itemLista = document.createElement('li')
+                itemLista.className = 'lista-item'
+                const botaoDeletar = document.createElement('button')
 
+                // Configura o botão de deletar
+                botaoDeletar.textContent = 'Deletar contato'
+                botaoDeletar.style.marginLeft = '10px'
+                botaoDeletar.onclick = () => deletarContato(index) // Chama a função de deletar contato (arrow function) e remove somente um item da lista
 
-        function excluirUsuario() {
-            console.log('Excluir apenas um usuário');
-            const listaUsuarios = [];
-            const contatosSalvos = document.getElementById('contatos-salvos');
-            const excluirUsuario = document.getElementById('nome').value;
-            console.log(`Usuário a ser excluído: ${excluirUsuario}`);
-            contatosSalvos.innerHTML = '';
-            console.log('Todos os usuários foram excluídos');
-            const contatosExcluidos = document.getElementById('contatos-excluidos');
-            const li = document.createElement('li');
-            li.textContent = 'Todos os contatos foram excluídos.';
-            li.className = 'excluidos';
-            contatosExcluidos.appendChild(li);
-        }
+                //Remover apenas um item da lista de contatos
+                contatos.childNodes.forEach((itemLista) => {
+                    if (itemLista.textContent.includes('Index: ' + index)) {
+                        contatos.removeChild(itemLista)
+                    }
+                })
 
-      <div class="lista">
-        <p class="lista-titulo">Contatos salvos:</p>
-        <ul id="contatos-salvos"></ul>
-      </div>
+                // Remove o item da lista de contatos
+                contatos.removeChild(itemLista)
 
+                // Adiciona o nome e telefone ao item de lista
+                itemLista.textContent = 'Index: ' + index + '\nNome: ' + item.nome + '\nTelefone: ' + item.telefone
 
-        function salvarContato() {
-            const listaUsuarios = []
-            const nome = document.getElementById('nome').value;
-            const telefone = document.getElementById('telefone').value;
-            const contatosSalvos = document.getElementById('contatos-salvos');
-            if (nome && telefone) {
-                console.log(`Nome: ${nome}, Telefone: ${telefone}`);
-                listaUsuarios.push({ nome, telefone });
-                document.getElementById('nome').value = '';
-                document.getElementById('telefone').value = '';
-            } else {
-                alert('Por favor, preencha todos os campos.');
-            }
+                // Adiciona o botão de deletar ao item de lista
+                itemLista.appendChild(botaoDeletar)
+                contatos.appendChild(itemLista)
 
-            listaUsuarios.forEach((usuario) => {
-                const li = document.createElement('li');
-                li.textContent = `Nome: ${nome}, Telefone: ${telefone}`;
-                contatosSalvos.appendChild(li);
+                // Limpa os campos de entrada
+                nomeCampo.value = ''
+                telefoneCampo.value = ''
             })
         }
 
-
-        function editarUsuario() {
-            const contatosSalvos = document.getElementById('contatos-salvos');
-            const editarUsuario = document.getElementById('nome').value;
-            console.log(`Usuário a ser editado: ${editarUsuario}`);
-            console.log('Editar apenas um usuário');
-            contatosSalvos.innerHTML = '';
-            console.log('Um dos usuários selecionados na lista para serem editados')
-            const contatosEditados = document.getElementById('contatos-editados');
-            const li = document.createElement('li');
-            li.textContent = 'Todos os contatos foram editados.';
-            li.className = 'excluidos';
-            contatosEditados.appendChild(li);
+        function deletarContato(index) {
+            console.log('Valor do index: excluir somente 1 usuário ', index)
         }
-
-        function deletarContato(index) { }
-        console.log("Valor do index: ", index)
 
     </script>
 </body>
