@@ -26,13 +26,16 @@
         <div class="container">
             <div class="row button-container">
                 <button type="button" onclick="salvarDados()" class="btn">Enviar</button>
+                <button type="button" onclick="salvarDados()" class="btn">Editar</button>
+                <button type="button" onclick="salvarDados()" class="btn">Excluir</button>
+
             </div>
             <ul id="contatos-salvos"></ul>
     </main>
     </div>
     </div>
     <script>
-    const listaContatos = []
+        const listaContatos = []
 
         function salvarDados() {
             const nomeCampo = document.getElementById('nome')
@@ -50,10 +53,10 @@
 
             })
 
-            
+
             contatos.innerHTML = '' // Limpa a lista antes de adicionar novos contatos
-            
-            
+
+
             listaContatos.forEach((item, index) => {
                 // Cria um item de lista para cada contato
                 const itemLista = document.createElement('li')
@@ -82,9 +85,52 @@
         function deletarContato(index) {
             console.log('Valor do index:  ', index)
             listaContatos.splice(index, 1) // Remove o contato da lista
+            let contato = ['usuario3', 'usuario2', 'usuario1'];
+            let removidos = contatos.splice('usuario3', 'usuario2', 'usuario1'); // Substitui 'usuario3' por 'usuario2' e 'usuario1'
+            // frutas agora é ['usuario1', 'usuario2', 'usuario3']
+            // removidos é ['usuario3']
             const contatos = document.getElementById('contatos-salvos') // Obtém a lista de contatos salvos
             contatos.innerHTML = '' // Limpa a lista antes de repopular
+            listaContatos.forEach((item, index) => {
+                // Cria um item de lista para cada contato
+                const itemLista = document.createElement('li')
+                itemLista.className = 'lista-item'
+                const botaoDeletar = document.createElement('button')
+                botaoDeletar.className = 'btn btn-danger'
+
+                // Configura o botão de deletar
+                botaoDeletar.textContent = 'Deletar contato'
+                botaoDeletar.style.marginLeft = '10px'
+                botaoDeletar.onclick = () => deletarContato(index) // Chama a função de deletar contato (arrow function) e remove somente um item da lista
+                // Adiciona o nome e telefone ao item de lista
+                itemLista.textContent = 'Index: ' + index + '\nNome: ' + item.nome + '\nTelefone: ' + item.telefone
+
+                // Adiciona o botão de deletar ao item de lista
+                itemLista.appendChild(botaoDeletar)
+                contatos.appendChild(itemLista)
+
+                // Limpa os campos de entrada
+                nomeCampo.value = ''
+                telefoneCampo.value = ''
+
+            })
         }
+
+        function editarContato(index) {
+            const nomeCampo = document.getElementById('nome')
+            const telefoneCampo = document.getElementById('telefone')
+            console.log('Valor do index:  ', index)
+            listaContatos.splice(index, 1) // Edita o contato da lista
+            let contato = ['usuario3', 'usuario2', 'usuario1'];
+            let editados = contatos.splice('usuario3', 'usuario2', 'usuario1'); // edita o 'usuario3', o 'usuario2' e o 'usuario1'
+            // editado agora é ['usuario1', 'usuario2', 'usuario3']
+            // editado é o ['usuario']
+            const contatos = document.getElementById('contatos-salvos') // Obtém a lista de contatos salvos
+            contatos.innerHTML = '' // Limpa a lista antes de repopular
+
+
+        }
+
 
     </script>
 </body>
