@@ -26,8 +26,6 @@
         <div class="container">
             <div class="row button-container">
                 <button type="button" onclick="salvarDados()" class="btn">Enviar</button>
-                <button type="button" onclick="salvarDados()" class="btn">Editar</button>
-                <button type="button" onclick="salvarDados()" class="btn">Excluir</button>
 
             </div>
             <ul id="contatos-salvos"></ul>
@@ -54,9 +52,7 @@
 
             })
 
-
             contatos.innerHTML = '' // Limpa a lista antes de adicionar novos contatos
-
 
             listaContatos.forEach((item, index) => {
                 // Cria um item de lista para cada contato
@@ -68,7 +64,6 @@
                 // Configura o botão de deletar
                 botaoDeletar.textContent = 'Deletar contato'
                 botaoDeletar.style.marginLeft = '10px'
-                botaoDeletar.onclick = () => deletarContato(index) // Chama a função de deletar contato (arrow function) e remove somente um item da lista
 
                 // Adiciona o nome e telefone ao item de lista
                 itemLista.textContent = 'Index: ' + index + '\nNome: ' + item.nome + '\nTelefone: ' + item.telefone
@@ -77,17 +72,17 @@
                 itemLista.appendChild(botaoDeletar)
                 contatos.appendChild(itemLista)
 
+
                 // Limpa os campos de entrada
                 nomeCampo.value = ''
                 telefoneCampo.value = ''
-                botaoDeletar.onclick = () => deletarContato(index) // Chama a função de deletar contato (arrow function) e remove somente um item da lista
-                const nomeCampo = document.getElementById('nome')
-                const telefoneCampo = document.getElementById('telefone')
+                botaoDeletar.onclick // Chama a função de deletar contato (arrow function) e remove somente um item da lista
+            
             })
         }
 
         function deletarContato(index) {
-            botaoDeletar.onclick = () => deletarContato(index) // Chama a função de deletar contato (arrow function) e remove somente um item da lista
+            botaoDeletar.onclick // Chama a função de deletar contato (arrow function) e remove somente um item da lista
             const nomeCampo = document.getElementById('nome')
             const telefoneCampo = document.getElementById('telefone')
             console.log('Valor do index:  ', index)
@@ -115,6 +110,8 @@
                 // Adiciona o botão de deletar ao item de lista
                 itemLista.appendChild(botaoDeletar)
                 contatos.appendChild(itemLista)
+                const nomeCampo = document.getElementById('nome')
+                const telefoneCampo = document.getElementById('telefone')
 
                 // Limpa os campos de entrada
                 nomeCampo.value = ''
@@ -125,9 +122,6 @@
         }
 
         function editarContato(index) {
-            botaoDeletar.onclick = () => deletarContato(index) // Chama a função de deletar contato (arrow function) e remove somente um item da lista
-            const nomeCampo = document.getElementById('nome')
-            const telefoneCampo = document.getElementById('telefone')
             listaContatos.splice(index, 1) // Edita o contato da lista
             let contato = ['usuario3', 'usuario2', 'usuario1'];
             let editados = contatos.splice('usuario3', 'usuario2', 'usuario1'); // edita o 'usuario3', o 'usuario2' e o 'usuario1'
