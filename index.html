@@ -59,6 +59,7 @@
                 const itemLista = document.createElement('li')
                 itemLista.className = 'lista-item'
                 const botaoDeletar = document.createElement('button')
+                botaoDeletar.onclick = () => deletarContato(index) // Chama a função de deletar contato (arrow function) e remove somente um item da lista
                 botaoDeletar.className = 'btn btn-danger'
 
                 // Configura o botão de deletar
@@ -76,21 +77,16 @@
                 // Limpa os campos de entrada
                 nomeCampo.value = ''
                 telefoneCampo.value = ''
-                botaoDeletar.onclick // Chama a função de deletar contato (arrow function) e remove somente um item da lista
-            
+
             })
         }
 
         function deletarContato(index) {
-            botaoDeletar.onclick // Chama a função de deletar contato (arrow function) e remove somente um item da lista
-            const nomeCampo = document.getElementById('nome')
-            const telefoneCampo = document.getElementById('telefone')
-            console.log('Valor do index:  ', index)
             listaContatos.splice(index, 1) // Remove o contato da lista
             let contato = ['usuario3', 'usuario2', 'usuario1'];
-            let removidos = contatos.splice('usuario3', 'usuario2', 'usuario1'); // Substitui 'usuario3' por 'usuario2' e 'usuario1'
-            // frutas agora é ['usuario1', 'usuario2', 'usuario3']
-            // removidos é ['usuario3']
+            let editados = contatos.splice('usuario3', 'usuario2', 'usuario1'); // edita o 'usuario3', o 'usuario2' e o 'usuario1'
+            // editado agora é ['usuario1', 'usuario2', 'usuario3']
+            // editado é o ['usuario']
             const contatos = document.getElementById('contatos-salvos') // Obtém a lista de contatos salvos
             contatos.innerHTML = '' // Limpa a lista antes de repopular
             listaContatos.forEach((item, index) => {
@@ -116,6 +112,7 @@
                 // Limpa os campos de entrada
                 nomeCampo.value = ''
                 telefoneCampo.value = ''
+                botaoDeletar.onclick = () => deletarContato(index) // Chama a função de deletar contato (arrow function) e remove somente um item da lista
 
 
             })
@@ -129,9 +126,13 @@
             // editado é o ['usuario']
             const contatos = document.getElementById('contatos-salvos') // Obtém a lista de contatos salvos
             contatos.innerHTML = '' // Limpa a lista antes de repopular
-            botaoDeletar.textContent = 'Deletar contato'
-            botaoDeletar.style.marginLeft = '10px'
+            itemLista.textContent = 'Index: ' + index + '\nNome: ' + item.nome + '\nTelefone: ' + item.telefone
 
+            const listaContatos = []
+
+            contatos.innerHTML = ''
+
+            botaoEditar.onclick = () => editarContato(index) // Chama a função de editar contato (arrow function) e edita somente um item da lista
 
         }
 
