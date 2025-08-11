@@ -38,6 +38,7 @@
         function salvarDados() {
             const nomeCampo = document.getElementById('nome')
             const telefoneCampo = document.getElementById('telefone')
+
             const nomeValue = nomeCampo.value
             const telefoneValue = telefoneCampo.value
 
@@ -83,10 +84,6 @@
 
         function deletarContato(index) {
             listaContatos.splice(index, 1) // Remove o contato da lista
-            let contato = ['usuario3', 'usuario2', 'usuario1'];
-            let editados = contatos.splice('usuario3', 'usuario2', 'usuario1'); // edita o 'usuario3', o 'usuario2' e o 'usuario1'
-            // editado agora é ['usuario1', 'usuario2', 'usuario3']
-            // editado é o ['usuario']
             const contatos = document.getElementById('contatos-salvos') // Obtém a lista de contatos salvos
             contatos.innerHTML = '' // Limpa a lista antes de repopular
             listaContatos.forEach((item, index) => {
@@ -108,33 +105,49 @@
                 contatos.appendChild(itemLista)
                 const nomeCampo = document.getElementById('nome')
                 const telefoneCampo = document.getElementById('telefone')
+                itemEditado.onclick = () => editarContato(index) // Chama a função de editar contato (arrow function) e edita somente um item da lista
 
                 // Limpa os campos de entrada
                 nomeCampo.value = ''
                 telefoneCampo.value = ''
-                botaoDeletar.onclick = () => deletarContato(index) // Chama a função de deletar contato (arrow function) e remove somente um item da lista
-
 
             })
         }
 
         function editarContato(index) {
             listaContatos.splice(index, 1) // Edita o contato da lista
-            let contato = ['usuario3', 'usuario2', 'usuario1'];
-            let editados = contatos.splice('usuario3', 'usuario2', 'usuario1'); // edita o 'usuario3', o 'usuario2' e o 'usuario1'
-            // editado agora é ['usuario1', 'usuario2', 'usuario3']
-            // editado é o ['usuario']
             const contatos = document.getElementById('contatos-salvos') // Obtém a lista de contatos salvos
-            contatos.innerHTML = '' // Limpa a lista antes de repopular
+
+            // Edita um item de lista para cada contato
+            const itemLista = document.createElement('li')
+            itemLista.className = 'lista-item'
+            const botaoEditar = document.createElement('button')
+            botaoEditar.className = 'btn btn-danger'
+
+            // Configura o botão de editar
+            botaoEditar.textContent = 'Editar contato'
+            botaoEditar.style.marginLeft = '10px'
+            const editarContato = document.getElementById('editarContato')
+            botaoEditar.onclick = () => EditarContato(index) // Chama a função de editar contato (arrow function) e edita somente um item da lista
+            // Adiciona o nome e telefone ao item de lista
             itemLista.textContent = 'Index: ' + index + '\nNome: ' + item.nome + '\nTelefone: ' + item.telefone
 
-            const listaContatos = []
-
-            contatos.innerHTML = ''
-
+            // Adiciona o botão de editar ao item de lista
+            itemLista.appendChild(botaoEditar)
+            contatos.appendChild(itemLista)
+            const nomeCampo = document.getElementById('nome')
+            const telefoneCampo = document.getElementById('telefone')
             botaoEditar.onclick = () => editarContato(index) // Chama a função de editar contato (arrow function) e edita somente um item da lista
 
-        }
+            // Limpa os campos de entrada
+
+            nomeCampo.value = ''
+            telefoneCampo.value = ''
+
+            listaContatos.forEach((item, index) => {
+                contatos.innerHTML = '' // Limpa a lista antes de repopular
+
+            }
 
 
     </script>
