@@ -57,8 +57,6 @@
 
             listaContatos.forEach((item, index) => {
                 // Cria um item de lista para cada contato
-                const itemLista = document.createElement('li')
-                itemLista.className = 'lista-item'
                 const botaoDeletar = document.createElement('button')
                 botaoDeletar.onclick = () => deletarContato(index) // Chama a função de deletar contato (arrow function) e remove somente um item da lista
                 botaoDeletar.className = 'btn btn-danger'
@@ -67,11 +65,25 @@
                 botaoDeletar.textContent = 'Deletar contato'
                 botaoDeletar.style.marginLeft = '10px'
 
+                const itemLista = document.createElement('li')
+                itemLista.className = 'lista-item'                 
+                const botaoEditar = document.createElement('button')
+                botaoEditar.onclick = () => editarContato(index) // Chama a função de editar
+                botaoEditar.className = 'btn btn-warning'
+
+                // Configura o botão de editar
+                botaoEditar.textContent = 'Editar contato'      
+                botaoEditar.style.marginLeft = '10px'
+
                 // Adiciona o nome e telefone ao item de lista
                 itemLista.textContent = 'Index: ' + index + '\nNome: ' + item.nome + '\nTelefone: ' + item.telefone
 
                 // Adiciona o botão de deletar ao item de lista
                 itemLista.appendChild(botaoDeletar)
+                contatos.appendChild(itemLista)
+
+                // Adiciona o botão de editar ao item de lista
+                itemLista.appendChild(botaoEditar)
                 contatos.appendChild(itemLista)
 
 
@@ -105,7 +117,6 @@
                 contatos.appendChild(itemLista)
                 const nomeCampo = document.getElementById('nome')
                 const telefoneCampo = document.getElementById('telefone')
-                itemEditado.onclick = () => editarContato(index) // Chama a função de editar contato (arrow function) e edita somente um item da lista
 
                 // Limpa os campos de entrada
                 nomeCampo.value = ''
@@ -127,8 +138,7 @@
             // Configura o botão de editar
             botaoEditar.textContent = 'Editar contato'
             botaoEditar.style.marginLeft = '10px'
-            const editarContato = document.getElementById('editarContato')
-            botaoEditar.onclick = () => EditarContato(index) // Chama a função de editar contato (arrow function) e edita somente um item da lista
+            botaoEditar.onclick = () => editarContato(index) // Chama a função de editar contato (arrow function) e edita somente um item da lista
             // Adiciona o nome e telefone ao item de lista
             itemLista.textContent = 'Index: ' + index + '\nNome: ' + item.nome + '\nTelefone: ' + item.telefone
 
@@ -137,17 +147,13 @@
             contatos.appendChild(itemLista)
             const nomeCampo = document.getElementById('nome')
             const telefoneCampo = document.getElementById('telefone')
-            botaoEditar.onclick = () => editarContato(index) // Chama a função de editar contato (arrow function) e edita somente um item da lista
 
             // Limpa os campos de entrada
 
             nomeCampo.value = ''
             telefoneCampo.value = ''
-
-            listaContatos.forEach((item, index) => {
-                contatos.innerHTML = '' // Limpa a lista antes de repopular
-
-            }
+ 
+        }
 
 
     </script>
