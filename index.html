@@ -53,7 +53,8 @@
 
             })
 
-            contatos.innerHTML = '' // Limpa a lista antes de adicionar novos contatos
+            
+
 
             listaContatos.forEach((item, index) => {
                 // Cria um item de lista para cada contato
@@ -66,17 +67,14 @@
                 botaoDeletar.style.marginLeft = '10px'
 
                 const itemLista = document.createElement('li')
-                itemLista.className = 'lista-item'                 
+                itemLista.className = 'lista-item'
                 const botaoEditar = document.createElement('button')
-                botaoEditar.onclick = () => editarContato(index) // Chama a função de editar
+                botaoEditar.onclick = () => editarContato(index) // Chama a função de editar contato 
                 botaoEditar.className = 'btn btn-warning'
 
                 // Configura o botão de editar
-                botaoEditar.textContent = 'Editar contato'      
+                botaoEditar.textContent = 'Editar contato'
                 botaoEditar.style.marginLeft = '10px'
-
-                // Adiciona o nome e telefone ao item de lista
-                itemLista.textContent = 'Index: ' + index + '\nNome: ' + item.nome + '\nTelefone: ' + item.telefone
 
                 // Adiciona o botão de deletar ao item de lista
                 itemLista.appendChild(botaoDeletar)
@@ -90,6 +88,8 @@
                 // Limpa os campos de entrada
                 nomeCampo.value = ''
                 telefoneCampo.value = ''
+
+                
 
             })
         }
@@ -128,31 +128,41 @@
         function editarContato(index) {
             listaContatos.splice(index, 1) // Edita o contato da lista
             const contatos = document.getElementById('contatos-salvos') // Obtém a lista de contatos salvos
+            contatos.innerHTML = '' // Limpa a lista antes de repopular
+            listaContatos.forEach((item, index) => {
+                // Edita um item de lista para cada contato
+                const itemLista = document.createElement('li')
+                itemLista.className = 'lista-item'
+                const botaoEditar = document.createElement('button')
+                botaoEditar.className = 'btn btn-danger'
 
-            // Edita um item de lista para cada contato
-            const itemLista = document.createElement('li')
-            itemLista.className = 'lista-item'
-            const botaoEditar = document.createElement('button')
-            botaoEditar.className = 'btn btn-danger'
+                // Configura o botão de editar
+                botaoEditar.textContent = 'Editar contato'
+                botaoEditar.style.marginLeft = '10px'
+                botaoEditar.onclick = () => editarContato(index) // Chama a função de editar contato (arrow function) e edita somente um item da lista
+                // Adiciona o nome e telefone ao item de lista
+                itemLista.textContent = 'Index: ' + index + '\nNome: ' + item.nome + '\nTelefone: ' + item.telefone
 
-            // Configura o botão de editar
-            botaoEditar.textContent = 'Editar contato'
-            botaoEditar.style.marginLeft = '10px'
-            botaoEditar.onclick = () => editarContato(index) // Chama a função de editar contato (arrow function) e edita somente um item da lista
-            // Adiciona o nome e telefone ao item de lista
-            itemLista.textContent = 'Index: ' + index + '\nNome: ' + item.nome + '\nTelefone: ' + item.telefone
+                // Adiciona o botão de editar ao item de lista
+                itemLista.appendChild(botaoEditar)
+                contatos.appendChild(itemLista)
+                const nomeCampo = document.getElementById('nome')
+                const telefoneCampo = document.getElementById('telefone')
 
-            // Adiciona o botão de editar ao item de lista
-            itemLista.appendChild(botaoEditar)
-            contatos.appendChild(itemLista)
+                // Limpa os campos de entrada
+                nomeCampo.value = ''
+                telefoneCampo.value = ''
+
+            })
+
+            const item = listaContatos[index] // Obtém o contato selecionado para edição
             const nomeCampo = document.getElementById('nome')
             const telefoneCampo = document.getElementById('telefone')
 
-            // Limpa os campos de entrada
+            // O botão editar deve funcionar para preencher os campos com os dados do contato selecionado para edição
+            nomeCampo.value = item.nome
+            telefoneCampo.value = item.telefone
 
-            nomeCampo.value = ''
-            telefoneCampo.value = ''
- 
         }
 
 
