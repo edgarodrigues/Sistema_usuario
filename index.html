@@ -98,13 +98,17 @@
         }
 
         function editarContato(index) {
+            const nomeCampo = document.getElementById('nome')
+            const telefoneCampo = document.getElementById('telefone')
+            if( nomeCampo.value !== '' || telefoneCampo.value !== '') {
+                alert('Salvar antes de fazer a próxima edição!')
+                return
+            }
             // Exibe o contato selecionado para edição
             const contato = listaContatos[index] // Obtém o contato selecionado para edição
             const contatos = document.getElementById('contatos-salvos') // Obtém a lista de contatos salvos
             contatos.innerHTML = '' // Limpa a lista antes de repopular
             listaContatos.splice(index, 1) // Remove o contato da lista para edição
-            const nomeCampo = document.getElementById('nome')
-            const telefoneCampo = document.getElementById('telefone')
             const itemLista = document.createElement('li')
             itemLista.className = 'lista-item'
             itemLista.textContent = 'Editando contato: ' + contato.nome + ' - ' + contato.telefone // Exibe o contato que está sendo editado
@@ -131,6 +135,7 @@
             const nomeValue = nomeCampo.value
             const telefoneValue = telefoneCampo.value
         }
+
     </script>
 </body>
 

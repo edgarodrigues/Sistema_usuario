@@ -1,45 +1,21 @@
-p { 
-  color: blue; 
-  font-size: 16px; 
-  margin-bottom: 10px; 
-}
-p.excluidos { 
-  color: red; 
-  font-weight: bold; 
+h1 {
+  color: green;
+  font-size: 24px;
 }
 
-.destaque { 
-  background-color: yellow; 
-  font-weight: bold; 
-}
-a { 
-  color: red; 
-  text-decoration: none; 
+#menu {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-#cabecalho { 
-  text-align: center; 
-  padding: 30px; 
-}
-h1 { 
-  color: green; 
-  font-size: 24px; 
+#rodape {
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  color: gray;
 }
 
-#menu { 
-  background-color: #f0f0f0; 
-  padding: 10px; 
-  border-radius: 5px; 
-}
-body {
-  background-color: blue;
-}
-#rodape { 
-  text-align: center; 
-  padding: 10px; 
-  font-size: 12px; 
-  color: gray; 
-}
 .btn {
   background-color: #ff0000;
 }
@@ -51,4 +27,79 @@ body {
   background-color: blue;
 }
 
+font-size {
+  font-size: 16px;
+}
+
+color {
+  color: blue;
+}
+
+text-align {
+  text-align: center;
+}
+
+font-family {
+  font-family: Arial, sans-serif;
+}
+
+p {
+  color: blue;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+p.excluidos {
+  color: red;
+  font-weight: bold;
+}
+
+.destaque {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+a {
+  color: red;
+  text-decoration: none;
+}
+
+#cabecalho {
+  text-align: center;
+  padding: 30px;
+}
+
+body {
+  background-color: powderblue;
+}
+
+h1 {
+  color: blue;
+}
+
+h1 {
+  color: blue;
+  font-family: verdana;
+  font-size: 300%;
+}
+
+p {
+  color: red;
+  font-family: courier;
+  font-size: 160%;
+}
+
+<h1 style="background-color:rgb(255, 99, 71);">
+<h1 style="background-color:#ff6347;">
+<h1 style="background-color:hsl(9, 100%, 64%);">
+
+<h1 style="background-color:rgba(255, 99, 71, 0.5);">
+<h1 style="background-color:hsla(9, 100%, 64%, 0.5);">
+
+<h1 style="color:Tomato;">
+<p style="color:DodgerBlue;">
+<p style="color:MediumSeaGreen;"> 
+
+<h1 style="color:blue;">
+<p style="color:red;">  
 
