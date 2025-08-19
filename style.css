@@ -1,10 +1,15 @@
-h1 {
+h1.destaque {
   color: green;
   font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-decoration: underline;
 }
 
 #menu {
-  background-color: #f0f0f0;
+  background-color: chartreuse;
   padding: 10px;
   border-radius: 5px;
 }
@@ -65,41 +70,49 @@ a {
 }
 
 #cabecalho {
+  color: aqua;
   text-align: center;
   padding: 30px;
 }
 
-body {
-  background-color: powderblue;
+body.button-container {
+  background-color: rgb(180, 230, 176);
+  font-family: Arial, sans-serif;
 }
 
-h1 {
-  color: blue;
-}
-
-h1 {
+h1.button-container {
   color: blue;
   font-family: verdana;
   font-size: 300%;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
-p {
-  color: red;
+p.btn {
+  color: rgb(0, 255, 106);
   font-family: courier;
   font-size: 160%;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-<h1 style="background-color:rgb(255, 99, 71);">
-<h1 style="background-color:#ff6347;">
-<h1 style="background-color:hsl(9, 100%, 64%);">
+h2 {
+  color: green;
+  font-family: verdana;
+  font-size: 200%;
 
-<h1 style="background-color:rgba(255, 99, 71, 0.5);">
-<h1 style="background-color:hsla(9, 100%, 64%, 0.5);">
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  word-spacing: 5px;
+  line-height: 1.5;
 
-<h1 style="color:Tomato;">
-<p style="color:DodgerBlue;">
-<p style="color:MediumSeaGreen;"> 
-
-<h1 style="color:blue;">
-<p style="color:red;">  
-
+}
