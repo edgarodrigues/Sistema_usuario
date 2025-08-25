@@ -1,5 +1,5 @@
-h1.destaque {
-  color: green;
+h1 {
+  color: rgb(0, 128, 58);
   font-size: 24px;
   font-weight: bold;
   text-align: center;
@@ -8,21 +8,50 @@ h1.destaque {
   text-decoration: underline;
 }
 
-#menu {
-  background-color: chartreuse;
-  padding: 10px;
-  border-radius: 5px;
-}
-
 #rodape {
   text-align: center;
   padding: 10px;
   font-size: 12px;
   color: gray;
+  border-top: 1px solid #ccc;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  background-color: lightgray;
 }
 
 .btn {
-  background-color: #ff0000;
+  background-color: #00a2ff;
+  color: rgb(0, 128, 0);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.meu-texto {
+  color: rgb(0, 128, 0);
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+lista-item {
+  color: #00ff2a(0, 0, 0, 0);
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .button-container {
@@ -30,29 +59,33 @@ h1.destaque {
   justify-content: center;
   margin-top: 20px;
   background-color: blue;
-}
-
-font-size {
-  font-size: 16px;
-}
-
-color {
-  color: blue;
-}
-
-text-align {
-  text-align: center;
-}
-
-font-family {
-  font-family: Arial, sans-serif;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 p {
-  color: blue;
+  color: rgba(183, 0, 255, 0.363);
   font-size: 16px;
   margin-bottom: 10px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  text-decoration: underline;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
+
+.elemento-com-borda {
+  border-style: solid;
+  /* Define o estilo da borda (solid, dotted, dashed, etc.) */
+  border-width: 2px;
+  /* Define a espessura da borda */
+  border-color: rgb(31, 10, 10);
+  /* Define a cor da borda */
+  padding: 5px;
+  /* Adiciona um espaçamento para que a borda não fique muito colada ao texto */
+}
+
 
 p.excluidos {
   color: red;
@@ -62,28 +95,54 @@ p.excluidos {
 .destaque {
   background-color: yellow;
   font-weight: bold;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 a {
-  color: red;
+  color: rgb(0, 255, 42);
   text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
 }
 
 #cabecalho {
   color: aqua;
   text-align: center;
   padding: 30px;
+  font-size: 40px;
+  font-family: Arial, sans-serif;
 }
 
 body.button-container {
   background-color: rgb(180, 230, 176);
   font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 h1.button-container {
   color: blue;
   font-family: verdana;
   font-size: 300%;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+p {
+  color: rgba(225, 0, 255, 0.363);
+  font-family: courier;
+  font-size: 160%;
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -91,17 +150,29 @@ h1.button-container {
   text-decoration: underline;
 }
 
-p.btn {
-  color: rgb(0, 255, 106);
-  font-family: courier;
-  font-size: 160%;
-  text-align: center;
+lista-item {
+  color: #FF0000(0, 0, 0, 0);
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  text-align: left;
   margin-top: 20px;
   margin-bottom: 20px;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
-h2 {
-  color: green;
+.texto-com-contorno {
+  -webkit-text-stroke-width: 1px;
+  /* Define a largura do contorno */
+  -webkit-text-stroke-color: #000;
+  /* Define a cor do contorno como preta */
+  color: #fff;
+  /* Opcional: cor do texto em si */
+}
+
+
+h2.p {
+  color: rgba(128, 126, 0, 0.342);
   font-family: verdana;
   font-size: 200%;
 
@@ -114,5 +185,19 @@ h2 {
   letter-spacing: 2px;
   word-spacing: 5px;
   line-height: 1.5;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
 
+
+#menu {
+  background-color: rgba(0, 255, 64, 0.747);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  color: #3333339d;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

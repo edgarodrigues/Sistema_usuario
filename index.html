@@ -11,21 +11,24 @@
     <header>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-        <h1>Contatos</h1>
+        <h1 class="destaque">Contatos</h1>
         <p>Insira o contato:</p>
         <div style="width: 90%; height: 40px ">
-            <label>Insira o nome do contato:</label>
+
+            <label class="destaque">Insira o nome do contato:</label>
             <input type="nome" id="nome" placeholder="Nome do usuário" class="nome_usuario">
         </div>
     </header>
     <div style="width: 90%; height: 40px ">
-        <label>Insira o telefone do contato:</label>
+
+
+        <label class="destaque">Insira o telefone do contato:</label>
         <input type="text" id="telefone" placeholder="Telefone do usuário" class="telefone_usuario">
     </div>
     <main>
         <div class="container">
             <div class="row button-container">
-                <button type="button" onclick="salvarDados()" class="btn">Enviar</button>
+                <button type="button" onclick="salvarDados()" class="destaque">Enviar</button>
 
             </div>
             <ul id="contatos-salvos"></ul>
@@ -76,7 +79,7 @@
             const telefoneValue = telefoneCampo.value
 
 
-            if (nomeValue.length < 3 && telefoneValue.length < 3) return
+            if (nomeValue.length < 3 || telefoneValue.length < 3) return
             const contatos = document.getElementById('contatos-salvos')
 
 
@@ -100,7 +103,7 @@
         function editarContato(index) {
             const nomeCampo = document.getElementById('nome')
             const telefoneCampo = document.getElementById('telefone')
-            if( nomeCampo.value !== '' || telefoneCampo.value !== '') {
+            if (nomeCampo.value !== '' || telefoneCampo.value !== '') {
                 alert('Salvar antes de fazer a próxima edição!')
                 return
             }
