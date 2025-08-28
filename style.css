@@ -61,6 +61,28 @@
   box-shadow: 0 4px 8px rgba(10, 24, 145, 0.616);
 }
 
+.botões-container {
+  display: flex;
+  grid-template-columns: repeat(2, 1fr);
+  width: 300px;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  
+}
+
+.botões-container button {
+  background-color: #00a2ff;
+  color: rgb(0, 128, 0);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
 .button-container {
   display: flex;
   justify-content: center;
