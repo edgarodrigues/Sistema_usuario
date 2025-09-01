@@ -130,6 +130,62 @@ button:nth-child(10) {
   /* Ocupa 2 colunas */
 }
 
+.calculator {
+  background-color: #2e2e2e;
+  /* Fundo da calculadora */
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  /* Largura da calculadora */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  /* Sombra */
+  display: grid;
+  /* Para organizar os botões em grid */
+  grid-template-columns: repeat(4, 1fr);
+  /* 4 colunas */
+  gap: 10px;
+  /* Espaçamento entre os botões */
+  margin: 50px auto;
+}
+
+.calculator__keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* Define 4 colunas para os botões */
+  gap: 10px;
+}
+
+.calculator__button {
+  background-color: #505050;
+  /* Cor de fundo dos botões */
+  color: white;
+  /* Cor do texto */
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 1.2em;
+  cursor: pointer;
+  /* Indica que é clicável */
+  transition: background-color 0.2s;
+  /* Suaviza a mudança de cor ao passar o mouse */
+}
+
+.calculator__button:hover {
+  background-color: #707070;
+  /* Cor mais clara ao passar o mouse */
+}
+
+.calculator__button--operator {
+  background-color: #f09a3e;
+  /* Cor para botões de operação */
+}
+
+.calculator__button--wide {
+  /* Para botões que ocupam mais de uma coluna */
+  grid-column: span 2;
+}
+
+
 .botões-container {
   display: flex;
   grid-template-columns: repeat(2, 1fr);
