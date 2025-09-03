@@ -11,6 +11,21 @@ function calcular() {
 }
 
 
+n1 = float(input("Insira o primeiro número: "))
+operacao = input("Insira a operação (+, -, *, /): ")
+n2 = float(input("Insira o segundo número: "))
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
