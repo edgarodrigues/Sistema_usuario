@@ -48,10 +48,14 @@ botaoNumero.addEventListener('click', calcularResultado);
 // adicione-o também:
 botaoCalcular.addEventListener('click', calcularResultado);
 
+
 // Opcional: Se você quiser que o botão "Igual" *substitua* o "Calcular"
 // (ou seja, se o "Calcular" não precisar mais da função), você pode
 // remover seu listener e apenas usar o "Igual"
 // botaoCalcular.removeEventListener('click', calcularResultado);
+
+
+
 
 
 
