@@ -16,6 +16,40 @@ function calcular() {
     }
 }
 
+function funcionamentoBotao() {
+    const botoesCalculadora = document.getElementById('botões')
+    const numeroCalculadora = document.getElementById('número')
+    const sinalCalculadora = document.getElementById('sinalCalculadora')
+    const sinalIgual = document.getElementById('sinalIgual')
+
+    const botoescalculadoraValue = botoescalculadoraCampo.value
+    const numerocalculadoraValue = numerocalculadoraCampo.value
+    const sinalcalculadoraValue = sinalcalculadoraCampo.value
+    const sinaligualValue = sinaligualCampo.value
+    const resultadoValue = resultadoCampo.value
+
+    var expressao = document.getElementById("resultado").value;
+    var numero = parseFloat(expressao);
+    var botaoCalculadora = parseFloat(expressao);
+    var resultado = 0;
+
+    if (!isNaN(numero)) {
+        resultado = numero;
+    }
+    try {
+        // Usa a função eval para calcular a expressão, mas com cuidado!
+        // É mais seguro usar outras bibliotecas para cálculos complexos ou inseguros.
+        var resultado = eval(expressao);
+        document.getElementById("resultado").value = resultado;
+    } catch (error) {
+        document.getElementById("resultado").value = "Erro";
+        console.error("Erro ao calcular a expressão:", error);
+    }
+}
+
+console.log("Botão funcionando!");
+fazerbotaoFuncionar();
+
 n1 = float(input("Insira o primeiro número: "))
 operacao = input("Insira a operação (+, -, *, /): ")
 n2 = float(input("Insira o segundo número: "))
@@ -53,6 +87,8 @@ botaoCalcular.addEventListener('click', calcularResultado);
 // (ou seja, se o "Calcular" não precisar mais da função), você pode
 // remover seu listener e apenas usar o "Igual"
 // botaoCalcular.removeEventListener('click', calcularResultado);
+
+
 
 
 
