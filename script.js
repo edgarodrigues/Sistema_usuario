@@ -28,6 +28,12 @@ function funcionamentoBotao() {
     const sinaligualValue = sinaligualCampo.value
     const resultadoValue = resultadoCampo.value
 
+    botoescalculadoraCampo.value = ''
+    numerocalculadoraCampo.value = ''
+    sinalcalculadoraCampo.value = ''
+    sinaligualCampo.value = ''
+    resultadoCampo.value = ''
+
     var expressao = document.getElementById("resultado").value;
     var numero = parseFloat(expressao);
     var botaoCalculadora = parseFloat(expressao);
@@ -45,6 +51,46 @@ function funcionamentoBotao() {
         document.getElementById("resultado").value = "Erro";
         console.error("Erro ao calcular a expressão:", error);
     }
+}
+
+function fazerbotaoFuncionar() {
+    const botaoNumero = document.getElementById('botão');
+    const botaoSinal = document.getElementById('botão');
+    const botaoSinalIgual = document.getElementById('botão');
+    botao.addEventListener('click', funcionamentoBotao);
+    const numero = listaNumeros[index]
+    const numeros = document.getElementById('numeros-digitados')
+    calculadora.innerHTML = ''
+    listaNumeros.splice(index, 1)
+    const itemLista = document.createElement('li')
+    itemLista.classNumero = 'lista-item'
+    itemLista.textContent = 'Digitando numero: ' + numero.calculadora + ' - ' + sinal.calculadora + ' - ' + igual.calculadora
+    const botaoCalcular = document.createElement('button')
+    botaoCalcular.className = 'btn btn-danger'
+
+    const botao = document.createElement('button')
+    botao.classNumero = 'btn btn-warning'
+
+    botaoEditar.textContent = 'Salvar Edição'
+    botaoEditar.style.marginLeft = '10px'
+    botaoCalcular.onclick = () => salvarNumeros()
+
+    itemLista.appendChild(botaoCalcular)
+    numeros.appendChild(itemLista)
+
+    botoescalculadoraCampo.value = botoes.calculadora
+    numerocalculadoraCampo.value = numero.calculadora
+    sinalcalculadoraCampo.value = sinal.calculadora
+    sinaligualCampo.value = sinaligual.calculadora
+    resultadoCampo.value = resultado.calculadora
+
+
+    exibirNumeros()
+    botoescalculadoraCampo.focus()
+    numerocalculadoraCampo.focus()
+    sinalcalculadoraCampo.focus()
+    sinaligualCampo.focus()
+    resultadoCampo.focus()
 }
 
 console.log("Botão funcionando!");
