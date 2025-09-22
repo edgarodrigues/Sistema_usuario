@@ -10,6 +10,16 @@
   background-color: lightgray;
 }
 
+.artigo {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
 .btn {
   background-color: #00a2ff;
   color: rgb(0, 128, 0);

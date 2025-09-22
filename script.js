@@ -84,7 +84,6 @@ function fazerbotaoFuncionar() {
     sinaligualCampo.value = sinaligual.calculadora
     resultadoCampo.value = resultado.calculadora
 
-
     exibirNumeros()
     botoescalculadoraCampo.focus()
     numerocalculadoraCampo.focus()
