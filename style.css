@@ -101,6 +101,8 @@
   gap: 5px;
   /* Espaço entre os botões */
   padding: 10px;
+  width: 300px;
+  /* Largura total dos botões */
 }
 
 button {
@@ -128,11 +130,14 @@ button:hover {
   grid-row: span 1;
   /* Para o botão = ocupar uma linha */
   background-color: #5cb85c;
+  color: white;
 }
 
 .decimal {
   grid-column: span 1;
   /* O ponto pode ocupar uma coluna */
+  background-color: #5bc0de;
+  color: white;
 }
 
 /* Ajuste a posição dos botões que não se encaixam na grade padrão */
@@ -140,6 +145,8 @@ button:nth-child(10) {
   /* Botão 0 */
   grid-column: span 2;
   /* Ocupa 2 colunas */
+  background-color: #5bc0de;
+  color: white;
 }
 
 .calculator {
@@ -196,7 +203,6 @@ button:nth-child(10) {
   /* Para botões que ocupam mais de uma coluna */
   grid-column: span 2;
 }
-
 
 .botões-container {
   display: flex;
@@ -327,4 +333,3 @@ p.excluidos {
   box-shadow: 0 4px 8px rgba(10, 238, 2, 0.5);
 
 }
-
