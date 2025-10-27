@@ -14,6 +14,7 @@ function calcular() {
         document.getElementById("resultado").value = "Erro";
         console.error("Erro ao calcular a expressão:", error);
     }
+
 }
 
 function funcionamentoBotao() {
