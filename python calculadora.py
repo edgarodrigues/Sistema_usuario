@@ -46,8 +46,20 @@ def main():
 if __name__ == "__main__"::
     main()
 
+if __name__ == "__main__"::
+    main()
+
+if __name__ == "__main__":
+    main()
+
 def main():
-    resultado = calculadora()
+resultado = calculadora()
+
+print(f"O resultado é: {resultado}")
+
+
+    
+
 
 
 
